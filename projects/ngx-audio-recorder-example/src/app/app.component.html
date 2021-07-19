@@ -1,0 +1,26 @@
+<div class="container">
+  <select [(ngModel)]="micToUse" (ngModelChange)="setMic()">
+    <option *ngFor="let device of devices" [value]="device?.deviceId">
+      {{device?.label}}
+    </option>
+  </select>
+
+
+  <div *ngIf="recordedAudio" style="margin-top:30px">
+    <audio controls>
+      <source [src]="recordedAudio">
+    </audio>
+  </div>
+
+  <div style="margin-top:30px">
+
+    <button (click)="startRecording()">
+      start recording
+    </button>
+
+    <button (click)="stopRecording()">
+      stop recording
+    </button>
+
+  </div>
+</div>
